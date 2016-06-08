@@ -5,8 +5,6 @@ MAINTAINER Krzysztof Kardasz <krzysztof@kardasz.eu>
 ENV DEBIAN_FRONTEND noninteractive
 RUN \
     apt-get update && \
-    apt-get -y upgrade && \
-    apt-get -y dist-upgrade && \
     apt-get -y install wget curl ca-certificates
 
 # grab gosu for easy step-down from root
@@ -44,6 +42,7 @@ ENV RUN_USER            spring
 ENV RUN_USER_UID        5777
 ENV RUN_GROUP           spring
 ENV RUN_GROUP_GID       5777
+ENV USER_HOME           /opt/spring
 
 COPY docker-entrypoint.sh /entrypoint.sh
 
